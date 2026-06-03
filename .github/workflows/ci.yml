@@ -24,3 +24,9 @@ jobs:
 
       - name: Run tests
         run: pytest tests/ -v
+
+      - name: Lint dengan flake8
+        run: flake8 app/ tests/ --max-line-length=100
+
+      - name: Test + coverage report
+        run: pytest tests/ -v --cov=app --cov-report=term-missing --cov-fail-under=80
